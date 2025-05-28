@@ -1,0 +1,35 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;  
+    background-color: hsl(0, 0%, 90%);
+}
+#chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 80px);
+    grid-template-rows: repeat(8, 80px);
+    width: 640px;
+    height: 640px;
+    border: 2px solid black;
+
+}
+.square{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.light{
+    background-color: hsl(37, 66%, 83%);
+}
+.light:hover{
+    background-color: hsl(37, 66%, 78%);
+}
+.dark{
+    background-color: hsl(27, 36%, 55%);
+}
+.dark:hover{
+    background-color: hsl(27, 36%, 50%);
+}
