@@ -4,6 +4,7 @@ const gameBoard = new GameBoard();
 
 const boardDiv = document.getElementById('chessboard');
 console.log(boardDiv);
+let selectedSquare = null;
 
 function renderBoard() {
     boardDiv.innerHTML = "";
@@ -25,8 +26,23 @@ function renderBoard() {
                 square.textContent = piece.getSymbol();
             }
 
+            square.addEventListener("click", () => handleClicks(row, col));
+
             boardDiv.appendChild(square);    
         }
+    }
+}
+
+
+function handleClicks(row, col) {
+    if (!selectedSquare) {
+        selectedSquare = { row, col };
+        console.log('selected squar', row, col);
+    } else {
+        console.log('moved to', row, col);
+        gameBoard.movePiece(selectedSquare.row, selectedSquare.col, row, col);
+        selectedSquare = null;
+        renderBoard();
     }
 }
 

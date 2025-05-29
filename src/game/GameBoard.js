@@ -48,6 +48,15 @@ export class GameBoard {
             col < 8 && col >= 0
         );
     }
+    movePiece(row1, col1, row2, col2) {
+        const piece = this.spaces[row1][col1].getPiece();
+        console.log('peice set');
+        if (piece) {
+            this.spaces[row2][col2].setPiece(piece);
+            this.spaces[row1][col1].removePiece();
+            console.log('piece moved');
+        }
+    }
 }
 
 
