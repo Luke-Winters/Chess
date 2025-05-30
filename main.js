@@ -49,7 +49,7 @@ function handleClicks(row, col) {
             gameBoard.movePiece(selectedSquare.row, selectedSquare.col, row, col);
             piece.setPosition(row, col);
             console.log('position set');
-            gameBoard.toString();
+            console.log(gameBoard.toString());
         } else {
             console.log('invalid move');
         }

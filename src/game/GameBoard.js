@@ -63,9 +63,20 @@ export class GameBoard {
         for (let i = 0; i < this.spaces.length; i ++) {
             for (let j = 0; j < this.spaces[i].length; j ++) {
                 const square = this.spaces[i][j];
-                
+                const piece = square.getPiece();
+                if (piece) {
+                    str += piece.getSymbol();
+                } else {
+                    if ((i + j) % 2 === 0) {
+                        str += '□';
+                    } else {
+                        str += '■'
+                    }
+                }
             }
+            str += '\n';
         }
+        return str;
     }
 }
 
