@@ -10,7 +10,65 @@ export class Bishop extends Piece {
         return this.symbol;
     }
 
+    getColor() {
+        return this.color;
+    }
+
+    setPosition(row, col) {
+        this.row = row;
+        this.col = col;
+    }
+
     getValidMoves(board) {
-        return [];
+        let legalMoves = [];
+        //UP RIGHT
+        for (let row = this.row - 1, col = this.col + 1; board.inBounds(row, col); col ++, row --) {
+            const piece = board.getSquare(row, col).getPiece();
+            if (piece) {
+                if (piece.getColor() !== this.color) {
+                    legalMoves.push({row,col});
+                }
+                break;
+            } else {
+                legalMoves.push({row, col});
+            }
+        }
+        //UP LEFT
+        for (let row = this.row - 1, col = this.col - 1; board.inBounds(row, col); col --, row --) {
+            const piece = board.getSquare(row, col).getPiece();
+            if (piece) {
+                if (piece.getColor() !== this.color) {
+                    legalMoves.push({row,col});
+                }
+                break;
+            } else {
+                legalMoves.push({row, col});
+            }
+        }
+        //DOWN RIGTH
+        for (let row = this.row + 1, col = this.col + 1; board.inBounds(row, col); row ++, col ++) {
+            const piece = board.getSquare(row, col).getPiece();
+            if (piece) {
+                if (piece.getColor() !== this.color) {
+                    legalMoves.push({row,col});
+                }
+                break;
+            } else {
+                legalMoves.push({row, col});
+            }
+        }
+        //DOWN LEFT
+        for (let row = this.row + 1, col = this.col - 1; board.inBounds(row, col); row ++, col --) {
+            const piece = board.getSquare(row, col).getPiece();
+            if (piece) {
+                if (piece.getColor() !== this.color) {
+                    legalMoves.push({row,col});
+                }
+                break;
+            } else {
+                legalMoves.push({row, col});
+            }
+        }
+        return legalMoves;
     }
 }

@@ -10,6 +10,15 @@ export class Queen extends Piece {
         return this.symbol;
     }
 
+    getColor() {
+        return this.color;
+    }
+
+    setPosition(row, col) {
+        this.row = row;
+        this.col = col;
+    }
+
     getValidMoves(board) {
         return [];
     }

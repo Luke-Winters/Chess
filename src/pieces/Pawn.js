@@ -10,6 +10,15 @@ export class Pawn extends Piece {
         return this.symbol;
     }
 
+    setPosition(row, col) {
+        this.row = row;
+        this.col = col;
+    }
+
+    getColor() {
+        return this.color;
+    }
+
     getValidMoves(board) {
         return [];
     }

@@ -37,10 +37,22 @@ function renderBoard() {
 function handleClicks(row, col) {
     if (!selectedSquare) {
         selectedSquare = { row, col };
-        console.log('selected squar', row, col);
+        console.log('selected square', row, col);
     } else {
-        console.log('moved to', row, col);
-        gameBoard.movePiece(selectedSquare.row, selectedSquare.col, row, col);
+        const newSquare = { row, col };
+        console.log('new square', row, col);
+        const piece = gameBoard.getSquare(selectedSquare.row, selectedSquare.col).getPiece();
+        const moves = piece.getValidMoves(gameBoard);
+        const isValid = moves.some(move => move.row === row && move.col === col);
+        if (isValid) {
+            console.log('valid move');
+            gameBoard.movePiece(selectedSquare.row, selectedSquare.col, row, col);
+            piece.setPosition(row, col);
+            console.log('position set');
+            gameBoard.toString();
+        } else {
+            console.log('invalid move');
+        }
         selectedSquare = null;
         renderBoard();
     }

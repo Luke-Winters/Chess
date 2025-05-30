@@ -10,7 +10,35 @@ export class Knight extends Piece {
         return this.symbol;
     }
 
+    getColor() {
+        return this.color;
+    }
+
+    setPosition(row, col) {
+        this.row = row;
+        this.col = col;
+    }
+
     getValidMoves(board) {
-        return [];
+        let legalMoves = [];
+        let allMoves = [
+            { row: this.row - 2, col: this.col + 1  },
+            { row: this.row - 2, col: this.col - 1  },
+            { row: this.row + 2, col: this.col + 1  },
+            { row: this.row + 2, col: this.col - 1  },
+            { row: this.row - 1, col: this.col + 2  },
+            { row: this.row + 1, col: this.col + 2  },
+            { row: this.row - 1, col: this.col - 2  },
+            { row: this.row + 1, col: this.col - 2  }
+        ];
+        for (let move of allMoves) {
+            if (board.inBounds(move.row, move.col)) {
+                const piece = board.getSquare(move.row, move.col).getPiece();
+                if (!piece || piece.color !== this.color) {
+                    legalMoves.push(move);
+                }
+            }
+        }
+        return legalMoves;
     }
 }

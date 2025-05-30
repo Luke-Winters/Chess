@@ -13,7 +13,15 @@ export class Piece {
         throw new Error("getSymbol() must be called by subclass");
     }
 
+    setPosition(row, col) {
+        throw new Error("setPosition() must be called by subclass");
+    }
+
     getValidMoves(board) {
-        throw new Error("getValidMoves must be called by subclass");
+        throw new Error("getValidMoves() must be called by subclass");
+    }
+
+    getColor() {
+        throw new Error("getColor() must be called by subclass");
     }
 }

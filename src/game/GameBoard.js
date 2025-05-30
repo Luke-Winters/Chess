@@ -57,6 +57,16 @@ export class GameBoard {
             console.log('piece moved');
         }
     }
+
+    toString() {
+        let str = "";
+        for (let i = 0; i < this.spaces.length; i ++) {
+            for (let j = 0; j < this.spaces[i].length; j ++) {
+                const square = this.spaces[i][j];
+                
+            }
+        }
+    }
 }
 
 
