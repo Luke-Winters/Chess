@@ -20,53 +20,34 @@ export class Bishop extends Piece {
     }
 
     getValidMoves(board) {
+        const directions = [
+            [1, 1],
+            [-1, 1], 
+            [1, -1], 
+            [-1, -1]
+        ]
+
         let legalMoves = [];
-        //UP RIGHT
-        for (let row = this.row - 1, col = this.col + 1; board.inBounds(row, col); col ++, row --) {
-            const piece = board.getSquare(row, col).getPiece();
-            if (piece) {
-                if (piece.getColor() !== this.color) {
-                    legalMoves.push({row,col});
+
+        for (let direction of directions) {
+            let row = this.row
+            let col = this.col;
+            while (board.inBounds(row, col)) {
+                row += direction[0];
+                col += direction[1];
+                if (!board.inBounds(row, col)) break;
+                const square = board.getSquare(row, col);
+                const piece = square.getPiece();
+
+                if (piece) {
+                  if (piece.getColor() !== this.color) {
+                        legalMoves.push({row,col});
+                    }
+                    break;
+                } else {
+                    legalMoves.push({row, col});
                 }
-                break;
-            } else {
-                legalMoves.push({row, col});
-            }
-        }
-        //UP LEFT
-        for (let row = this.row - 1, col = this.col - 1; board.inBounds(row, col); col --, row --) {
-            const piece = board.getSquare(row, col).getPiece();
-            if (piece) {
-                if (piece.getColor() !== this.color) {
-                    legalMoves.push({row,col});
-                }
-                break;
-            } else {
-                legalMoves.push({row, col});
-            }
-        }
-        //DOWN RIGTH
-        for (let row = this.row + 1, col = this.col + 1; board.inBounds(row, col); row ++, col ++) {
-            const piece = board.getSquare(row, col).getPiece();
-            if (piece) {
-                if (piece.getColor() !== this.color) {
-                    legalMoves.push({row,col});
-                }
-                break;
-            } else {
-                legalMoves.push({row, col});
-            }
-        }
-        //DOWN LEFT
-        for (let row = this.row + 1, col = this.col - 1; board.inBounds(row, col); row ++, col --) {
-            const piece = board.getSquare(row, col).getPiece();
-            if (piece) {
-                if (piece.getColor() !== this.color) {
-                    legalMoves.push({row,col});
-                }
-                break;
-            } else {
-                legalMoves.push({row, col});
+                
             }
         }
         return legalMoves;

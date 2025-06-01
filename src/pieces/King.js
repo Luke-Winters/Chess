@@ -20,6 +20,27 @@ export class King extends Piece {
     }
 
     getValidMoves(board) {
-        return [];
+        const allMoves = [
+            { row: this.row - 1 , col: this.col },
+            { row: this.row + 1, col: this.col },
+            { row: this.row, col: this.col + 1  },
+            { row: this.row, col: this.col - 1  },
+            { row: this.row - 1, col: this.col - 1  },
+            { row: this.row + 1, col: this.col + 1  },
+            { row: this.row - 1, col: this.col + 1  },
+            { row: this.row + 1, col: this.col - 1  }
+        ]
+
+        let legalMoves = [];
+
+        for (let move of allMoves) {
+            if (board.inBounds(move.row, move.col)) {
+                const piece = board.getSquare(move.row, move.col).getPiece();
+                if (!piece || piece.color !== this.color) {
+                    legalMoves.push(move);
+                }
+            }
+        }
+        return legalMoves;
     }
 }

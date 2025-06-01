@@ -35,6 +35,11 @@ function renderBoard() {
 
 
 function handleClicks(row, col) {
+    const clickedPiece = gameBoard.getSquare(row, col).getPiece();
+    if (!selectedSquare && !clickedPiece) {
+    return; 
+    }
+
     if (!selectedSquare) {
         selectedSquare = { row, col };
         console.log('selected square', row, col);
