@@ -1,4 +1,5 @@
 import { GameBoard } from "./src/game/GameBoard.js";
+// import { Team } from "./src/game/Team.js";
 
 const gameBoard = new GameBoard();
 

@@ -34,7 +34,7 @@ export class Queen extends Piece {
         let legalMoves = [];
 
         for (let direction of directions) {
-            let row = this.row
+            let row = this.row;
             let col = this.col;
             while (board.inBounds(row, col)) {
                 row += direction[0];

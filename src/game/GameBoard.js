@@ -58,6 +58,7 @@ export class GameBoard {
         }
     }
 
+
     toString() {
         let str = "";
         for (let i = 0; i < this.spaces.length; i ++) {
