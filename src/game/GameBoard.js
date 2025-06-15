@@ -22,7 +22,6 @@ export class GameBoard {
             }
         }
     }
-
     initializePieces() {
         for (let col = 0; col < 8; col ++) {
             this.getSquare(1, col).setPiece(new Pawn("black", 1, col));
@@ -35,7 +34,6 @@ export class GameBoard {
             this.getSquare(7, col).setPiece(new pieceOrder[col]("white", 7, col));
         }
     }
-
     getAllSquares() {
         return this.spaces;
     }
@@ -57,8 +55,32 @@ export class GameBoard {
             console.log('piece moved');
         }
     }
-
-
+    renderBoard(boardDiv, clickHandler) {
+        boardDiv.innerHTML = "";
+        let count = 1;
+        for (let row = 0; row < 8; row ++) {
+            for (let col = 0; col < 8; col ++) {
+                const square = document.createElement('div');
+                square.classList.add('square');
+                if ((row + col) % 2 === 0) {
+                    square.classList.add('light');
+                } else {
+                    square.classList.add('dark');
+                }
+                square.dataset.row = row;
+                square.dataset.col = col;
+    
+                const piece = this.getSquare(row, col).getPiece();
+                if (piece) {
+                    square.textContent = piece.getSymbol();
+                }
+    
+                square.addEventListener("click", () => clickHandler(row, col));
+    
+                boardDiv.appendChild(square);    
+            }
+        }
+    }
     toString() {
         let str = "";
         for (let i = 0; i < this.spaces.length; i ++) {
