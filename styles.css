@@ -12,7 +12,7 @@ body{
     width: 560px;
     height: 560px;
     border: 2px solid black;
-
+    user-select: none;
 }
 .square{
     width: 70px;

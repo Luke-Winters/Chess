@@ -1,5 +1,5 @@
-import { GameBoard } from "./GameBoard";
-import { Team } from "./Team";
+import { GameBoard } from "./GameBoard.js";
+import { Team } from "./Team.js";
 
 export class Game {
     constructor() {
@@ -10,11 +10,19 @@ export class Game {
     }
 
     changeTurn() {
-        if (turn === 'white') {
+        if (this.currentTurn === 'white') {
             this.currentTurn = 'black';
         } else {
             this.currentTurn = 'white';
         }
+    }
+
+    getBoard() {
+        return this.board;
+    }
+
+    getCurrentTurn() {
+        return this.currentTurn;
     }
 
     checkWinner() {
