@@ -1,9 +1,21 @@
-body{
+body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;  
+    height: 100vh;
     background-color: hsl(0, 0%, 90%);
+}
+.left-side {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+.team-img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border: 2px solid black;
+    margin: 5px;
 }
 #chessboard {
     display: grid;
@@ -11,10 +23,11 @@ body{
     grid-template-rows: repeat(8, 70px);
     width: 560px;
     height: 560px;
-    border: 2px solid black;
+    border: 3px solid hsl(27, 59%, 34%);
     user-select: none;
 }
-.square{
+
+.square {
     width: 70px;
     height: 70px;
     display: flex;
@@ -24,15 +37,15 @@ body{
     cursor: pointer;
     user-select: none;
 }
-.light{
+.light {
     background-color: hsl(37, 66%, 83%);
 }
-.light:hover{
+.light:hover {
     background-color: hsl(37, 66%, 78%);
 }
-.dark{
+.dark {
     background-color: hsl(27, 36%, 55%);
 }
-.dark:hover{
+.dark:hover {
     background-color: hsl(27, 36%, 50%);
 }

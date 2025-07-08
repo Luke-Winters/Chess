@@ -21,6 +21,14 @@ export class Game {
         return this.board;
     }
 
+    getTeam(color) {
+        if (color == 'white') {
+            return this.whiteTeam;
+        } else {
+            return this.blackTeam;
+        }
+    }
+
     getCurrentTurn() {
         return this.currentTurn;
     }
