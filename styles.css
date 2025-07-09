@@ -10,6 +10,23 @@ body {
     flex-direction: column;
     align-items: left;
 }
+.top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#captured-white-pieces,
+#captured-black-pieces {
+    font-size: 2.2rem;
+    margin-top: 5px;
+    text-align: left;
+    min-height: 40px;
+}
 .team-img {
     width: 70px;
     height: 70px;
@@ -23,10 +40,44 @@ body {
     grid-template-rows: repeat(8, 70px);
     width: 560px;
     height: 560px;
-    border: 3px solid hsl(27, 59%, 34%);
+    border: 3px solid hsl(27, 36%, 25%);
     user-select: none;
 }
-
+#winner-message {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 2px solid black;
+    padding: 20px 40px;
+    font-size: 2rem;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: none;
+}
+#winner-message.show {
+    display: block;
+}
+#new-game-button {
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: hsl(120, 71%, 48%);
+    border: 2px solid black;
+    padding: 20px 40px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: none;
+    cursor: pointer;
+}
+#new-game-button.show {
+    display: block;
+}
 .square {
     width: 70px;
     height: 70px;

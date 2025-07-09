@@ -4,6 +4,7 @@ export class Knight extends Piece {
     constructor(color, row, col) {
         super(color, row, col)
         this.symbol = this.color === "white" ? "♘" : "♞";
+        this.value = 3;
     }
 
     getSymbol() {

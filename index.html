@@ -8,12 +8,21 @@
 </head>
 
 <body>
+    <div id="winner-message" class="hidden"></div>
+    <div id="new-game-button" class="hidden">New Game</div>
     <div class="left-side">
-        <img src="./assets/black_team.jpg" class="team-img">
+        <div class="top">
+            <img src="./assets/black_team.jpg" class="team-img">
+            <div id="captured-white-pieces"></div>
+        </div>
         <div id="chessboard"></div>
-        <img src="./assets/white_team.jpg" class="team-img">
+        <div class="bottom">
+            <img src="./assets/white_team.jpg" class="team-img">
+            <div id="captured-black-pieces"></div>
+        </div>
+        
       </div>
-      
+
     <script type="module" src="main.js"></script>
 </body>
 </html>

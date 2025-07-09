@@ -29,8 +29,15 @@ export class Team {
         }
     }
 
-    printLostPieces() {
-        const symbols = this.lostPieces.map(p => p.getSymbol());
-        console.log(symbols.join(" "));
+    getPieces() {
+        return this.pieces;
     }
+
+    getLostPieces() {
+        return this.lostPieces.map(p => p.getSymbol()).join(" ");
+    }
+
+    
+
+
 }
