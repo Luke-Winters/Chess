@@ -61,9 +61,9 @@ function handleClicks(row, col) {
 // helper to update captured pieces
 function updateCapturedPieces() {
     document.getElementById('captured-white-pieces').textContent = 
-    game.getBlackTeam().getLostPieces();
-    document.getElementById('captured-black-pieces').textContent = 
     game.getWhiteTeam().getLostPieces();
+    document.getElementById('captured-black-pieces').textContent = 
+    game.getBlackTeam().getLostPieces();
 }
 
 // helper function to display winner
